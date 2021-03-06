@@ -1,0 +1,169 @@
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device, initial scale=1" />
+    <meta http-equiv="X-UA-compatible" content="ie=edge" />
+    <title> Form Registrasi </title>
+    <style>
+        p {
+            font-family: Arial, Helvetica, sans-serif;
+            text-align: justify;
+        }
+        
+        ul {
+            list-style-type: none;
+            padding: 0;
+            overflow: hidden;
+            text-decoration: none;
+            background-color: rgb(6, 22, 36);
+        }
+        
+        li {
+            float: left;
+        }
+        
+        li a {
+            display: block;
+            color: floralwhite;
+            text-align: center;
+            padding: 16px 16px;
+            text-decoration: none;
+        }
+    </style>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+
+    <div class="jumbotron text-center">
+        <div class="navbar" style="background-image: url(bg1.jpg); margin: 10px;">
+            <h1 style="color:black;">Selamat Datang</h1>
+        </div>
+        <div id="navbar">
+            <ul>
+                <li><a href="">Home</a></li>
+                <li><a href="">Profile</a></li>
+                <li><a href="">About</a></li>
+            </ul>
+        </div>
+    </div>
+
+
+    <div class="container">
+        <div class="content">
+            <div class="col-lg-8 bg-info">
+                <h2 style="color: indianred; text-align: center;"> FORM REGISTRASI</h2>
+                <hr>
+                <form class="form-horizontal" action="">
+                    <div class="form-group">
+                        <label class="control-label col-sm-3">First Name:</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" required placeholder="Input FirstName" name="nama">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-3">Last Name:</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" required placeholder="Input LastName" name="nama">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-3">Email:</label>
+                        <div class="col-sm-9">
+                            <input type="email" class="form-control" placeholder="Masukkan Alamat Email" name="email">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-3">Pekerjaan:</label>
+                        <div class="col-sm-9">
+                            <select name="status_pekerjaan" class="form-control sp">
+                                <option value=" ">pilih</option>
+                                <option value="bekerja">Bekerja</option>
+                                <option value="mahasiswa">Mahasiswa</option>
+                                <option value="siswa">Siswa</option>
+                                <option value="tidakbekerja">Tidak Bekerja</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group hide ps spo">
+                        <label class="control-label col-sm-3">Program Studi:</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" name="ps" placeholder="Enter password">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-3">Password:</label>
+                        <div class="col-sm-9">
+                            <input type="password" class="form-control psw" placeholder="Enter password">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-sm-3">Konfirmasi Password:</label>
+                        <div class="col-sm-9">
+                            <input type="password" class="form-control repsw" placeholder="Enter password">
+                            <small class="errpsw"></small>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-offset-2 col-sm-9">
+                            <div class="checkbox">
+                                <label><input type="checkbox" name="remember"> Remember me</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-offset-3 col-sm-9">
+                            <button type="submit" class="btn btn-default">Daftar</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="col-lg-4" style="background-color: cadetblue">
+            </div>
+        </div>
+    </div>
+    <div id="myModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <!-- Modal Content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Berhasil</h4>
+                </div>
+                <div class="modal-body">
+                    <p></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    $(document).ready(function() {
+        $('h2').css('text-align', 'center');
+        $('h2').css('text-transform', 'uppercase');
+        $(".form-horizontal ").submit(function() {
+            var ps1 = $('.psw').val();
+            var ps2 = $('.repwd').val();
+            var valid = 0;
+            if (ps1 == ps2) {
+                valid = 1;
+            } else {
+                $('.errpsw').html('Password Salah');
+            }
+            if (valid == 0) {
+                event.preventDefault();
+            } else {
+                $('p').html("Selamat pendaftaran  " + $('input[name="nama "]').val() + " telah berhasil ");
+            }
+        });
+    });
+</script>
+
+</html>
